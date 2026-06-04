@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Login></Login>
+    <!-- <Home v-else></Home> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Home from './components/common/Home.vue'
+import Login from './components/page/Login/index.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Home,
+    Login,
+  },
+  computed: {
+    isAuthenticated() {
+      // 这里可以根据实际情况判断用户是否已登录，例如检查 token 是否存在
+      return !!localStorage.getItem('token')
+    },
+  },
+  methods: {
+    // 这里可以添加登录和登出的方法，例如设置和清除 token
+    login(token) {
+      localStorage.setItem('token', token)
+    },
+    logout() {
+      localStorage.removeItem('token')
+    },
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './assets/css/main.css';
 </style>

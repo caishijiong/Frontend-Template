@@ -1,0 +1,118 @@
+$size: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30;
+
+@each $item in $size {
+
+    // 生成 margin 类
+    // m = margin, t=top, b=bottom, l=left, r=right, x=左右, y=上下
+
+    .m#{$item} {
+        margin: #{$item}px;
+    }
+
+    .mt#{$item} {
+        margin-top: #{$item}px;
+    }
+
+    .mr#{$item} {
+        margin-right: #{$item}px;
+    }
+
+    .mb#{$item} {
+        margin-bottom: #{$item}px;
+    }
+
+    .ml#{$item} {
+        margin-left: #{$item}px;
+    }
+
+    .mx#{$item} {
+        margin-left: #{$item}px;
+        margin-right: #{$item}px;
+    }
+
+    .my#{$item} {
+        margin-top: #{$item}px;
+        margin-bottom: #{$item}px;
+    }
+
+    // 生成 padding 类
+    // p = padding, t=top, b=bottom, l=left, r=right, x=左右, y=上下
+
+    .p#{$item} {
+        padding: #{$item}px;
+    }
+
+    .pt#{$item} {
+        padding-top: #{$item}px;
+    }
+
+    .pr#{$item} {
+        padding-right: #{$item}px;
+    }
+
+    .pb#{$item} {
+        padding-bottom: #{$item}px;
+    }
+
+    .pl#{$item} {
+        padding-left: #{$item}px;
+    }
+
+    .px#{$item} {
+        padding-left: #{$item}px;
+        padding-right: #{$item}px;
+    }
+
+    .py#{$item} {
+        padding-top: #{$item}px;
+        padding-bottom: #{$item}px;
+    }
+}
+
+
+$i: 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200, 250, 300, 400;
+
+// 固定宽高
+@each $item in $i {
+    .w#{$item} {
+        width: #{$item}px;
+    }
+
+    .h#{$item} {
+        height: #{$item}px;
+    }
+}
+
+$p: 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100%;
+
+@function get-number($percentage) {
+    @return $percentage / 1%; // 将百分比除以1%，得到数值部分
+}
+
+// 百分比宽高
+@each $item in $p {
+    $number: get-number($item);
+
+    .w#{$number}p {
+        width: #{$item};
+    }
+
+    .h#{$number}p {
+        height: #{$item};
+    }
+}
+
+// 字体大小
+@for $item from 12 through 40 {
+
+    .size#{$item},
+    .f#{$item} {
+        font-size: #{$item}px;
+    }
+}
+
+@for $item from 1 through 10 {
+    .flex#{$item} {
+        flex: #{$item};
+    }
+}
