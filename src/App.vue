@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Login></Login>
+    <!-- <Login></Login> -->
     <!-- <Home v-else></Home> -->
+    <Home></Home>
   </div>
 </template>
 
