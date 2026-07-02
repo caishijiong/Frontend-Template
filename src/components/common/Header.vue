@@ -10,7 +10,7 @@
             <div>
                 <HeaderNav />
 
-                <el-button type="primary" @click="logout">退出登录</el-button>
+                <!-- <el-button type="primary" @click="logout">退出登录</el-button> -->
             </div>
         </div>
     </div>
@@ -32,12 +32,12 @@ export default {
     },
     computed: {
         title() {
-            return appConfig.header.title
+            return appConfig.systemName
         },
         headerStyle() {
             return {
-                backgroundColor: appConfig.header.backgroundColor,
-                color: appConfig.header.textColor,
+                backgroundColor: appConfig.theme.menuBg,
+                color: appConfig.theme.menuText,
             }
         }
     },

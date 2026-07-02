@@ -8,13 +8,13 @@
                         <i :class="menu.icon"></i>
                         <span class="menu-label">{{ menu.name }}</span>
                     </template>
-                    <el-menu-item v-for="item in menu.children" :key="item.link" :index="item.link">
+                    <el-menu-item v-for="item in menu.children" :key="item.index" :index="item.index">
                         <i :class="item.icon"></i>
                         <span class="menu-label" slot="title">{{ item.name }}</span>
                     </el-menu-item>
                 </el-submenu>
 
-                <el-menu-item v-else :key="menu.link" :index="menu.link">
+                <el-menu-item v-else :key="menu.index" :index="menu.index">
                     <i :class="menu.icon"></i>
                     <span class="menu-label" slot="title">{{ menu.name }}</span>
                 </el-menu-item>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { appConfig, getSidebarMenus } from '@/config'
+import { appConfig } from '@/config'
 
 export default {
     props: {
@@ -35,20 +35,20 @@ export default {
     },
     computed: {
         visibleMenus() {
-            return getSidebarMenus()
+            return appConfig.navigation.sidebar
         },
         sidebarTheme() {
             return {
-                backgroundColor: appConfig.sidebar.backgroundColor,
-                textColor: appConfig.sidebar.textColor,
-                activeTextColor: appConfig.sidebar.activeTextColor,
+                backgroundColor: appConfig.theme.menuBg,
+                textColor: appConfig.theme.menuText,
+                activeTextColor: appConfig.theme.menuActiveText,
             }
         },
         sidebarStyle() {
             return {
-                '--sidebar-width': `${appConfig.layout.sidebarWidth}px`,
-                '--sidebar-fold-width': `${appConfig.layout.sidebarFoldWidth}px`,
-                backgroundColor: appConfig.sidebar.backgroundColor,
+                '--sidebar-width': '200px',
+                '--sidebar-fold-width': '64px',
+                backgroundColor: appConfig.theme.menuBg,
             }
         },
     },

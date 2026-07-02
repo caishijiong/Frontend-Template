@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <v-Header :folded="folded" :show-collapse="layout.showSidebar" @collapse-change="collapseChange"></v-Header>
+        <v-Header :folded="folded" :show-collapse="showSidebar" @collapse-change="collapseChange"></v-Header>
         <div class="content-container">
-            <v-SidebarItem v-if="layout.showSidebar" :folded="folded"></v-SidebarItem>
+            <v-SidebarItem v-if="showSidebar" :folded="folded"></v-SidebarItem>
             <div class="main-content">
                 <v-Tags></v-Tags>
                 <div class="view-content">
@@ -17,7 +17,6 @@
 import vTags from './Tags.vue'
 import vHeader from './Header.vue'
 import vSidebarItem from './SidebarItem.vue'
-import { appConfig } from '@/config'
 
 export default {
     name: 'HomePage',
@@ -29,7 +28,7 @@ export default {
     data() {
         return {
             folded: false,
-            layout: appConfig.layout,
+            showSidebar: true,
         }
     },
     methods: {
